@@ -1,0 +1,3 @@
+[submodule "coding-examples/examples-csharp"]
+	path = coding-examples/examples-csharp
+	url = https://github.com/neo-project/examples-csharp.git
