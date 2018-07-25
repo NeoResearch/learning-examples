@@ -3,6 +3,7 @@
 ## This is a list of examples that (strangely) do not seem to work
 
 <hr>
+
 ## C# bad examples
 ### ternary operators
 
