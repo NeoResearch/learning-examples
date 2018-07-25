@@ -2,7 +2,9 @@
 # Bad Examples
 ## This is a list of examples that (strangely) do not seem to work
 
+<hr>
 ## C# bad examples
+### ternary operators
 
 I believe ternary operators do not seem to work well...
 
@@ -25,3 +27,19 @@ namespace Neo.SmartContract
 ```
 
 Using python invocation (in neocompiler.io) with invocation string `write` (or without it) this code gives `FAULT`.
+
+Replacing ternary operator with:
+```
+if(input)
+   return new byte[]{0x05};
+else
+   return new byte[]{0x07};
+// shash: 0x21e1867c74c02ae501976c6b211f9bcbb6cf4f2e avm:
+// 51c56b6c766b00527ac46c766b00c3057772697465876409000105616c75
+// 660107616c7566
+```
+it seems to work now (`write` returns 5, and `writex` returns 7). Thanks @Jing for this example.
+
+<hr>
+
+Contribute with us!
