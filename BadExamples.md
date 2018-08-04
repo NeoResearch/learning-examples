@@ -43,4 +43,11 @@ it seems to work now (`write` returns 5, and `writex` returns 7). Thanks @Jing f
 
 <hr>
 
+When you try to pack a single byte inside an array... the byte is lost and zero is put on array!
+
+```
+byte val = 0x70;
+Runtime.Notify(new byte[1]{val}); // PROBLEMATIC
+```
+
 Contribute with us!
