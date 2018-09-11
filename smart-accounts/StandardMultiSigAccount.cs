@@ -1,3 +1,5 @@
+// Implementing MultiSig contract on Neo using CHECKMULTISIG opcode
+
 using Neo.SmartContract.Framework;
 using Neo.SmartContract.Framework.Services.Neo;
 using Neo.SmartContract.Framework.Services.System;
@@ -11,6 +13,16 @@ namespace NeoContract1
         public static readonly byte[] pubkey1 = "036245f426b4522e8a2901be6ccc1f71e37dc376726cc6665d80c5997e240568fb".HexToBytes();
         public static readonly byte[] pubkey2 = "0303897394935bb5418b1c1c4cf35513e276c6bd313ddd1330f113ec3dc34fbd0d".HexToBytes();
         public static readonly byte[] pubkey3 = "02e2baf21e36df2007189d05b9e682f4192a101dcdf07eed7d6313625a930874b4".HexToBytes();
+
+        // =================================================================
+        // REMEMBER TO PUSH SIGNATURES IN REVERSE ORDER FOR PACKING IN ARRAY
+        // This is different from "standard multisig", which don't use array
+        // =================================================================
+        // PUSH40 - sig pubkey2
+        // PUSH40 - sig pubkey1
+        // 52
+        // C1 (PACK)
+        // =================================================================
 
         public static bool Main(byte[][] signatures)
         {
